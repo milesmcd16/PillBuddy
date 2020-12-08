@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomePage">
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="240dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        android:onClick="createNotifButton"
+        android:text="@string/create_notif_button"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:backgroundTint="#99DDFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeWidth="2dp" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="240dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="228dp"
+        android:layout_marginBottom="130dp"
+        android:onClick="viewCalendarButton"
+        android:text="@string/view_calendar_button"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:backgroundTint="#99DDFF"
+        app:layout_constraintBottom_toTopOf="@+id/button9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeWidth="2dp" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="240dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="viewMedicationListButton"
+        android:text="@string/view_meds_list_button"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:backgroundTint="#99DDFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeWidth="2dp" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="240dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="208dp"
+        android:onClick="accountSettingsButton"
+        android:text="@string/account_settings_button"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:backgroundTint="#99DDFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeWidth="2dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

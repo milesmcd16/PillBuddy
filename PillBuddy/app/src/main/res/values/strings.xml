@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Pill Buddy</string>
+    <string name="logo_description">App Logo</string>
+    <string name="sign_in_button">Sign In</string>
+    <string name="register_button">Register</string>
+    <string name="signin_text">Enter Username</string>
+    <string name="password_text">Enter Password</string>
+    <string name="enter_email_text">Enter Your Email</string>
+    <string name="pick_username_text">Pick a Username</string>
+    <string name="pick_password_text">Pick a Password</string>
+    <string name="create_notif_button">Create a Notification</string>
+    <string name="view_calendar_button">View Calendar and Upcoming Notifications</string>
+    <string name="view_meds_list_button">View Medication List</string>
+    <string name="account_settings_button">Account Settings</string>
+    <string name="notif_med_info">Enter Name of Medication</string>
+    <string name="notif_med_type">Enter Type of Medication</string>
+    <string name="notif_med_dosage">Enter How Much Medication to Take</string>
+    <string name="pick_time_button">Select Time</string>
+    <string name="create_button">Create</string>
+    <string name="confirm_notif_text">Notification Created Successfully</string>
+    <string name="create_another_notif_text">Create Another Notification</string>
+    <string name="main_menu_button">Main Menu</string>
+    <string name="title_activity_medication_list_page">ScrollingActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="medication_list_text">Medication List</string>
+    <string name="settings_username_text">Username:</string>
+    <string name="settings_password_text">Password:</string>
+    <string name="settings_buddies_text">Buddies:</string>
+    <string name="settings_change_button_text">Change</string>
+    <string name="settings_add_remove_buddy_button_text">Add/Remove</string>
+    <string name="buddy_email_text">Enter Buddy Email</string>
+</resources>
