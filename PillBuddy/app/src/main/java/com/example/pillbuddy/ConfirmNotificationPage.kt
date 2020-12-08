@@ -6,10 +6,12 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 
+
 class ConfirmNotificationPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_confirm_notification_page)
+
 
         //get the string passed in the intent for the name of the medication
         val message = intent.getStringExtra(EXTRA_MESSAGE)
@@ -32,6 +34,11 @@ class ConfirmNotificationPage : AppCompatActivity() {
             //set the text of the new text box to the value from the intent
             text = dosageText
         }
+
+        // Create a notification from the information entered by the user.
+        // For demonstration purposes, this is delivered immediately.
+        NotificationHandler.createDemoNotification(this, "It's time to take your $message",
+                "$typeText", "$dosageText", false)
     }
     //function that creates the intent to move to the create notification page and moves to that
     // page when the button is pressed
