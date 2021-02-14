@@ -12,6 +12,7 @@
         android:layout_height="64dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/signin_text"
         android:inputType="textPersonName"
@@ -20,13 +21,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints="" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextTextPersonName2"
         android:layout_width="298dp"
         android:layout_height="64dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/password_text"
         android:inputType="textPersonName"
@@ -34,8 +35,7 @@
         app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
     <Button
         android:id="@+id/button3"
@@ -45,9 +45,9 @@
         android:layout_marginBottom="50dp"
         android:onClick="signInToHome"
         android:text="@string/sign_in_button"
+        android:textAllCaps="false"
         android:textColor="#000000"
         android:textSize="30sp"
-        android:textAllCaps="false"
         app:backgroundTint="#99DDFF"
         app:layout_constraintBottom_toTopOf="@+id/button4"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,9 +63,9 @@
         android:layout_marginBottom="95dp"
         android:onClick="signInToRegister"
         android:text="@string/register_button"
+        android:textAllCaps="false"
         android:textColor="#000000"
         android:textSize="30sp"
-        android:textAllCaps="false"
         app:backgroundTint="#99DDFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
