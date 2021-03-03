@@ -37,8 +37,8 @@ class ConfirmNotificationPage : AppCompatActivity() {
 
         // Create a notification from the information entered by the user.
         // For demonstration purposes, this is delivered immediately.
-        NotificationHandler.createDemoNotification(this, "It's time to take your $message",
-                "$typeText", "$dosageText", false)
+        NotificationHandler.createNotification(this, "It's time to take your $message",
+               "$typeText", "$dosageText", false)
     }
     //function that creates the intent to move to the create notification page and moves to that
     // page when the button is pressed

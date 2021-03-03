@@ -32,8 +32,8 @@ object NotificationHandler {
         }
     }
 
-    fun createDemoNotification(context: Context, title: String, text: String,
-                               bigText: String, autoCancel: Boolean) {
+    fun createNotification(context: Context, title: String, text: String,
+                           bigText: String, autoCancel: Boolean) {
 
         // Get channel ID. Should be the same as the channel we created.
         val channelID = "${context.packageName}-${context.getString(R.string.app_name)}"
@@ -41,8 +41,8 @@ object NotificationHandler {
         // Instantiate the notification builder and build the notification
         val notificationBuilder = NotificationCompat.Builder(context, channelID).apply{
             // Set notification icon. This is required.
-            setSmallIcon(R.drawable.ic_launcher_background)
-            // Set the notification title
+            setSmallIcon(R.drawable.purba_red_and_white_pill)
+            // Set the notification title from reminder data class
             setContentTitle(title)
             // Set the main text for the notification
             setContentText(text)
@@ -58,29 +58,11 @@ object NotificationHandler {
             val pendingIntent = PendingIntent.getActivity(context,  0, intent, 0)
             setContentIntent(pendingIntent)
         }
+        // creating pending intent
 
         // Tell the notification manager what we did.
         val notificationManager = NotificationManagerCompat.from(context)
         notificationManager.notify(1001, notificationBuilder.build())
     }
 
-    /*
-
-    **** Not implemented yet ****
-
-    // Build a notification from user entered information
-    fun buildNotification(context: Context, reminderContents: String) : NotificationCompat.Builder{
-        // This is placeholder.
-
-        // Right now we're just using the createDemoNotification function.
-        // In the future this would be similar but use data from the app to populate the fields
-        // of the notification.
-        val channelID = "${context.packageName}-${context.getString(R.string.app_name)}"
-
-        return NotificationCompat.Builder(context, channelID).apply{
-
-        }
-    }
-
-     */
 }
