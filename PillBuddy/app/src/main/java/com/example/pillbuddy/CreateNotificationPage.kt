@@ -8,10 +8,11 @@ import android.app.TimePickerDialog
 import android.content.Intent
 import android.text.format.DateFormat.is24HourFormat
 import android.view.View
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TimePicker
 import androidx.fragment.app.DialogFragment
-
+import com.example.pillbuddy.NotificationData
 
 const val EXTRA_MESSAGE = "com.example.pillbuddy.MESSAGE"
 
@@ -29,11 +30,6 @@ open class CreateNotificationPage : AppCompatActivity() {
         val intent = Intent(this, ConfirmNotificationPage::class.java).apply {
             putExtra(EXTRA_MESSAGE, message)
         }
-        // gets the string of the edit text box so that it can be passed to next activity
-        val typeText = findViewById<EditText>(R.id.editTextTextPersonName8)
-        val typeMessage = typeText.text.toString()
-        // put the string into the intent
-        intent.putExtra("MedicationType",typeMessage)
 
         // gets the string of the edit text for the dosage amount to pass to next activity
         val dosageText = findViewById<EditText>(R.id.editTextTextPersonName9)
@@ -41,6 +37,50 @@ open class CreateNotificationPage : AppCompatActivity() {
         // give the dosage message to the intent
         intent.putExtra("Dosage", dosageMessage)
 
+        //get time and convert to 12 hours
+        var pm :Boolean? = false
+        if (hour > 12) {
+            pm = true
+            hour -= 12
+        }
+        intent.putExtra("Hour", hour)
+        intent.putExtra("Minute", minutes)
+        intent.putExtra("pm", pm)
+
+        //create days array
+        val days = arrayOfNulls<String>(7)
+        //get the checkboxes from ui
+        val mondayBox = findViewById<CheckBox>(R.id.MondayCheckBox)
+        val tuesdayBox = findViewById<CheckBox>(R.id.TuesdayCheckBox)
+        val wednesdayBox = findViewById<CheckBox>(R.id.WednesdayCheckBox)
+        val thursdayBox = findViewById<CheckBox>(R.id.ThursdayCheckBox)
+        val fridayBox = findViewById<CheckBox>(R.id.FridayCheckBox)
+        val saturdayBox = findViewById<CheckBox>(R.id.SaturdayCheckBox)
+        val sundayBox = findViewById<CheckBox>(R.id.SundayCheckBox)
+
+        //if box is checked add day to days array
+        if(mondayBox.isChecked){
+            days[0] = "monday"
+        }
+        if(tuesdayBox.isChecked){
+            days[1] = "tuesday"
+        }
+        if(wednesdayBox.isChecked){
+            days[2] = "wednesday"
+        }
+        if(thursdayBox.isChecked){
+            days[3] = "thursday"
+        }
+        if(fridayBox.isChecked){
+            days[4] = "friday"
+        }
+        if(saturdayBox.isChecked){
+            days[5] = "saturday"
+        }
+        if(sundayBox.isChecked){
+            days[6] = "sunday"
+        }
+        intent.putExtra("days", days)
         startActivity(intent)
     }
     // function to show the time picker box when the button is pressed
@@ -64,6 +104,7 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
 
     override fun onTimeSet(view: TimePicker, hourOfDay: Int, minute: Int) {
         // Do something with the time chosen by the user
-
+        hour = hourOfDay
+        minutes = minute
     }
 }

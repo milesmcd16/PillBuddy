@@ -6,6 +6,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 
+var hour = 0
+var minutes = 0
+var notifID = 0
 
 class ConfirmNotificationPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,13 +23,7 @@ class ConfirmNotificationPage : AppCompatActivity() {
             //set the text of the new text box to the value from the intent
             text = message
         }
-        //get the string passed in the intent for the type of the medication
-        val typeText = intent.getStringExtra("MedicationType")
-        //get the text box for where the type of the medication should be displayed
-        val typeView = findViewById<TextView>(R.id.textView2).apply {
-            //set the text of the new text box to the value from the intent
-            text = typeText
-        }
+
         //get the string passed in the intent for the dosage of the medication
         val dosageText = intent.getStringExtra("Dosage")
         //get the text box for where the dosage of the medication should be displayed
@@ -35,10 +32,42 @@ class ConfirmNotificationPage : AppCompatActivity() {
             text = dosageText
         }
 
+        val hourText = intent.getIntExtra("Hour", 0)
+        val minuteText = intent.getIntExtra("Minute", 0)
+        val pm = intent.getBooleanExtra("pm", false)
+        var timeText :String? = null
+
+        timeText = if (pm){
+            hourText.toString() + ":"   + minuteText.toString() + " PM"
+        } else {
+            hourText.toString() + ":" + minuteText.toString() + " AM"
+        }
+
+        val timeView = findViewById<TextView>(R.id.textView5).apply{
+            text  = timeText
+        }
+
+        val daysArray = intent.getStringArrayExtra("days")
+        var daysText :String? = null
+        if (daysArray != null) {
+            daysText = daysArray[1]
+        }
+        val typeView = findViewById<TextView>(R.id.textView2).apply {
+            //set the text of the new text box to the value from the intent
+            text = daysText
+        }
+        //create notification data object
+        if(pm){
+            hour += 12
+        }
+        val notification = NotificationData(notifID,null, message, dosageText, hour, minutes, daysArray)
+
+
+        notifID += 1
         // Create a notification from the information entered by the user.
         // For demonstration purposes, this is delivered immediately.
-        NotificationHandler.createNotification(this, "It's time to take your $message",
-               "$typeText", "$dosageText", false)
+        //NotificationHandler.createNotification(this, "It's time to take your $message",
+               //"$typeText", "$dosageText", false)
     }
     //function that creates the intent to move to the create notification page and moves to that
     // page when the button is pressed

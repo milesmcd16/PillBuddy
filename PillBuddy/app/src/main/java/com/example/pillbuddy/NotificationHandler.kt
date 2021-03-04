@@ -51,14 +51,18 @@ object NotificationHandler {
             setStyle(NotificationCompat.BigTextStyle().bigText(bigText))
             // If we leave autoCancel on, the notification will simply close if the user touches it.
             setAutoCancel(autoCancel)
+            //val jsonObjectRequest = StringRequest
 
             // Set up the notification's intent. This will launch our main menu.
-            val intent = Intent(context, HomePage::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            val intent = Intent(context, HomePage::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                //putextra reminder id
+            }
+
             val pendingIntent = PendingIntent.getActivity(context,  0, intent, 0)
             setContentIntent(pendingIntent)
+
         }
-        // creating pending intent
 
         // Tell the notification manager what we did.
         val notificationManager = NotificationManagerCompat.from(context)
