@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import com.example.pillbuddy.NotificationDataHelper
 
 var hour = 0
 var minutes = 0
@@ -60,6 +61,7 @@ class ConfirmNotificationPage : AppCompatActivity() {
             hour += 12
         }
         val notification = NotificationData(notifID,null, message, dosageText, hour, minutes, daysArray)
+        NotificationDataHelper.notificationList.add(0,notification)
 
 
         notifID += 1
