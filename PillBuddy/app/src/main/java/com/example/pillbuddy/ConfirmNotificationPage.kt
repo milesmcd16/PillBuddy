@@ -15,7 +15,6 @@ class ConfirmNotificationPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_confirm_notification_page)
 
-
         //get the string passed in the intent for the name of the medication
         val message = intent.getStringExtra(EXTRA_MESSAGE)
         //get the text box for where the name of the medication should be displayed

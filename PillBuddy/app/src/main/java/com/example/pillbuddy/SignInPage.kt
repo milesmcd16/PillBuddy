@@ -14,10 +14,12 @@ class SignInPage : AppCompatActivity() {
     fun signInToHome(view: View) {
         val intent = Intent(this, HomePage::class.java)
         startActivity(intent)
+        //api call with login data?
     }
     //function to create an intent to move to the Register Page activity when the button is pressed
     fun signInToRegister(view: View) {
         val intent = Intent(this, RegisterPage::class.java)
         startActivity(intent)
+        
     }
 }

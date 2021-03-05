@@ -19,6 +19,8 @@ class AddBuddyPage : AppCompatActivity() {
     //function to show the buddy has been invited screen
     fun buddyInvitedButton(view: View){
         //display a message saying buddy was invited successfully
+        //maybe change this to display only if a true value is received
+        //will have to double check
         val msg = "Buddy Invited!"
         Toast.makeText(this@AddBuddyPage, msg, Toast.LENGTH_SHORT).show()
     }

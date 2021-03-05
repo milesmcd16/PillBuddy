@@ -14,5 +14,7 @@ class RegisterPage : AppCompatActivity() {
     fun registerToHome(view: View) {
         val intent = Intent(this, HomePage::class.java)
         startActivity(intent)
+
+        //maybe change to sign in page?
     }
 }

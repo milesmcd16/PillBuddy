@@ -18,6 +18,10 @@ class CalendarPage : AppCompatActivity() {
         calendarView?.setOnDateChangeListener { view, year, month, dayOfMonth ->
             val msg = "No Notifications set for " + dayOfMonth + "/" + (month + 1) + "/" + year
             Toast.makeText(this@CalendarPage, msg, Toast.LENGTH_SHORT).show()
+
+            //API call here to pull the notification data for that date?
+            // we could also make it so that the local notification data is pulled instead of API call
+
         }
     }
 

@@ -21,6 +21,8 @@ class MedicationListPage : AppCompatActivity() {
         val listView = findViewById<ListView>(R.id.listview_1)
         listView.adapter = adapter
 
+        //API call/Database search here to display the names of the medications
+
     }
     //function to create an intent to move to the home page when the button is pressed and then move
     fun medListtoHome(view: View){

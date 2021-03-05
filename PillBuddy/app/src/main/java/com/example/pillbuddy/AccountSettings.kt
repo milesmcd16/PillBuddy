@@ -19,5 +19,9 @@ class AccountSettings : AppCompatActivity() {
     fun addBuddyButton(view: View){
         val intent = Intent(this, AddBuddyPage::class.java)
         startActivity(intent)
+
+        //API call here with entered buddy name as a parameter for the call
+        //
+        //
     }
 }
