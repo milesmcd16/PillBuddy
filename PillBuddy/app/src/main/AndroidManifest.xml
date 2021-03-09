@@ -10,9 +10,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:name=".PillBuddy"
 
         android:theme="@style/Theme.PillBuddy">
-        <activity android:name=".AddBuddyPage"></activity>
+        <activity android:name=".AddBuddyPage"/>
         <activity android:name=".AccountSettings" />
         <activity
             android:name=".MedicationListPage"
