@@ -13,6 +13,10 @@ import android.widget.EditText
 import android.widget.TimePicker
 import androidx.fragment.app.DialogFragment
 import com.example.pillbuddy.NotificationData
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 
 const val EXTRA_MESSAGE = "com.example.pillbuddy.MESSAGE"
 
@@ -86,6 +90,20 @@ open class CreateNotificationPage : AppCompatActivity() {
         //API call here to send the data input
         //
         //
+        //API call here to send the data input
+        //POst method have to figure some stuff out
+        val userID = NotificationDataHelper.notificationList[0].getUserId()
+        val queue = Volley.newRequestQueue( this)
+
+        val url = ("https://4cxr4yahc7.execute-api.us-east-2.amazonaws.com/TestEnvrio?currUser=")
+        val jsonObjectRequest = StringRequest(
+                Request.Method.POST, url,
+                Response.Listener<String>() { response ->
+                    var jsonResponseCalendar = response.toString()
+                },
+                Response.ErrorListener {//something here maybe //
+                })
+        queue.add(jsonObjectRequest)
     }
     // function to show the time picker box when the button is pressed
     fun showTimePickerDialog(v: View) {

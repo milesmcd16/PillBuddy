@@ -50,6 +50,10 @@ data class NotificationData (
         result = 31 * result + (Days?.contentHashCode() ?: 0)
         return result
     }
+
+    fun getUserId(): String? {
+        return Userid
+    }
 }
 
 

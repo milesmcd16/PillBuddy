@@ -16,12 +16,13 @@ class AccountSettings : AppCompatActivity() {
         startActivity(intent)
     }
     // function to move to the homepage activity when the button is pressed
+    // function to move to the homepage activity when the button is pressed
     fun addBuddyButton(view: View){
         val intent = Intent(this, AddBuddyPage::class.java)
         startActivity(intent)
-
-        //API call here with entered buddy name as a parameter for the call
-        //
-        //
+    }
+    fun changePasswordButton(view: View){
+        val intent = Intent(this, ChangePassword::class.java)
+        startActivity(intent)
     }
 }
