@@ -26,7 +26,7 @@ class AddBuddyPage : AppCompatActivity() {
         //display a message saying buddy was invited successfully
         //maybe change this to display only if a true value is received
         //will have to double check
-
+        /*
         val userID = NotificationDataHelper.notificationList[0].getUserId()
         val queue = Volley.newRequestQueue( this)
         val newBuddy = findViewById<EditText>(R.id.editTextTextPersonName10)
@@ -42,6 +42,6 @@ class AddBuddyPage : AppCompatActivity() {
                     Toast.makeText(this@AddBuddyPage, msgFail, Toast.LENGTH_SHORT).show()
                 })
         queue.add(jsonObjectRequest)
-
+    */
     }
 }

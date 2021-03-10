@@ -24,7 +24,7 @@ class SignInPage : AppCompatActivity() {
         val password = findViewById<EditText>(R.id.editTextTextPersonName2)
         val queue = Volley.newRequestQueue( this)
 
-
+        /*
         //POST METHOD SADGE
         val url = "https://4cxr4yahc7.execute-api.us-east-2.amazonaws.com/TestEnvrio"
         val jsonObjectRequest = StringRequest(
@@ -36,6 +36,8 @@ class SignInPage : AppCompatActivity() {
                 Response.ErrorListener {//something here maybe //
                 })
         queue.add(jsonObjectRequest)
+
+         */
 
     }
     //function to create an intent to move to the Register Page activity when the button is pressed

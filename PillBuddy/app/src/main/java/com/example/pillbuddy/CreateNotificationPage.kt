@@ -87,6 +87,7 @@ open class CreateNotificationPage : AppCompatActivity() {
         intent.putExtra("days", days)
         startActivity(intent)
 
+        /*
         //API call here to send the data input
         //
         //
@@ -104,6 +105,8 @@ open class CreateNotificationPage : AppCompatActivity() {
                 Response.ErrorListener {//something here maybe //
                 })
         queue.add(jsonObjectRequest)
+
+         */
     }
     // function to show the time picker box when the button is pressed
     fun showTimePickerDialog(v: View) {

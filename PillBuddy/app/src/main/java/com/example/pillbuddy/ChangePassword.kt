@@ -30,6 +30,7 @@ class ChangePassword : AppCompatActivity() {
             Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
             return
         }
+        /*
         //API call
         val userID = NotificationDataHelper.notificationList[0].getUserId()
         val queue = Volley.newRequestQueue( this)
@@ -44,6 +45,8 @@ class ChangePassword : AppCompatActivity() {
             Response.ErrorListener {//something here maybe //
             })
         queue.add(jsonObjectRequest)
+
+         */
     }
 
 }

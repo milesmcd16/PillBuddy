@@ -24,7 +24,7 @@ class RegisterPage : AppCompatActivity() {
         val email = findViewById<EditText>(R.id.editTextTextPersonName4)
         val queue = Volley.newRequestQueue( this)
 
-
+        /*
         //POST METHOD SADGE
         val url = "https://4cxr4yahc7.execute-api.us-east-2.amazonaws.com/TestEnvrio"
         val jsonObjectRequest = StringRequest(
@@ -36,6 +36,8 @@ class RegisterPage : AppCompatActivity() {
                 Response.ErrorListener {//something here maybe //
                 })
         queue.add(jsonObjectRequest)
+
+         */
         //maybe change to sign in page?
     }
 }
