@@ -10,10 +10,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        NotificationHandler.createNotificationChannel(this,
-                NotificationManagerCompat.IMPORTANCE_MAX, false,
-                "Pill Buddy", "Notification channel for Pill Buddy app")
-
         setContentView(R.layout.activity_main)
     }
     // function to load sign in page when the sign in button is pressed

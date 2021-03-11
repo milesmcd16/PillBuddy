@@ -67,7 +67,8 @@ class ConfirmNotificationPage : AppCompatActivity() {
         val notification = NotificationData(notifID,null, message, dosageText, hour, minutes, daysArray)
         NotificationDataHelper.notificationList.add(0,notification)
 
-
+        AlarmHandler.updateAlarms(this, notification)
+        Log.d("Yeet", "Notification created")
         notifID += 1
         // Create a notification from the information entered by the user.
         // For demonstration purposes, this is delivered immediately.
