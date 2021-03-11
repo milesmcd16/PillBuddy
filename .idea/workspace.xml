@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8ef0bdc-b3dd-4c7b-92bc-bd46c5fe969a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PillBuddy/app/src/main/java/com/example/pillbuddy/AlarmReceiver.kt" beforeDir="false" afterPath="$PROJECT_DIR$/PillBuddy/app/src/main/java/com/example/pillbuddy/AlarmReceiver.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PillBuddy/app/src/main/java/com/example/pillbuddy/ConfirmNotificationPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/PillBuddy/app/src/main/java/com/example/pillbuddy/ConfirmNotificationPage.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PillBuddy/app/src/main/java/com/example/pillbuddy/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/PillBuddy/app/src/main/java/com/example/pillbuddy/MainActivity.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
