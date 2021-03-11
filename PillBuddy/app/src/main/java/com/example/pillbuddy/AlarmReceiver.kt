@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import com.example.pillbuddy.NotificationHandler
-
 import android.util.Log
 
 class AlarmReceiver : BroadcastReceiver() {
@@ -18,7 +17,6 @@ class AlarmReceiver : BroadcastReceiver() {
                     val notificationData = NotificationDataHelper.findNotificationById(intent.extras!!.getInt("Notification Id"))
                     if (notificationData != null) {
                         NotificationHandler.createNotification(context, notificationData)
-
                     }
                 }
             }
