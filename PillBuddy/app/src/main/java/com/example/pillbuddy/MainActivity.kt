@@ -26,4 +26,9 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, RegisterPage::class.java)
         startActivity(intent)
     }
+
+    fun test(view: View){
+        val intent = Intent(this, TestPage::class.java)
+        startActivity(intent)
+    }
 }

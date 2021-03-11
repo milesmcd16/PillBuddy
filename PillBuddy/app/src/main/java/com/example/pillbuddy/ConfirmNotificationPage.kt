@@ -5,6 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import com.example.pillbuddy.NotificationDataHelper
 
 var hour = 0
 var minutes = 0
@@ -14,7 +19,6 @@ class ConfirmNotificationPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_confirm_notification_page)
-
 
         //get the string passed in the intent for the name of the medication
         val message = intent.getStringExtra(EXTRA_MESSAGE)
@@ -61,6 +65,7 @@ class ConfirmNotificationPage : AppCompatActivity() {
             hour += 12
         }
         val notification = NotificationData(notifID,null, message, dosageText, hour, minutes, daysArray)
+        NotificationDataHelper.notificationList.add(0,notification)
 
 
         notifID += 1
@@ -74,6 +79,8 @@ class ConfirmNotificationPage : AppCompatActivity() {
     fun createAnotherNotifButton(view: View){
         val intent = Intent(this, CreateNotificationPage::class.java)
         startActivity(intent)
+
+
     }
     //function that creates the intent to return to the home page and moves to that page when
     // the button is pressed
