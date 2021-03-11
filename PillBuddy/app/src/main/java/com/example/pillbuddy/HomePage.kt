@@ -13,7 +13,10 @@ class HomePage : AppCompatActivity() {
     //function to create the intent to move to the create notification page activity and then move
     //when the button is pressed
     fun createNotifButton(view: View) {
-        val intent = Intent(this, CreateNotificationPage::class.java)
+        val userID = intent.getStringExtra("userID")
+        val intent = Intent(this, CreateNotificationPage::class.java).apply {
+            putExtra("UserID", userID)
+        }
         startActivity(intent)
     }
     //function to create the intent to move to the calendar page activity and then move

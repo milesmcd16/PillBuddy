@@ -23,20 +23,13 @@ class RegisterPage : AppCompatActivity() {
     //function that creates an intent to move to the home page when the button is pressed
     fun registerToHome(view: View) {
 
-        //Move intent from here to response section after post has been figured out
-        val intent = Intent(this, HomePage::class.java)
-        startActivity(intent)
-
-
-
-
         //API Call Variables
-        val userID = findViewById<EditText>(R.id.editTextTextPersonName5)
-        val password = findViewById<EditText>(R.id.editTextTextPassword)
-        val confirmpassword = findViewById<EditText>(R.id.editTextTextPassword2)
-        val email = findViewById<EditText>(R.id.editTextTextPersonName11)
-        val firstName = findViewById<EditText>(R.id.editTextTextPersonName4)
-        val lastName = findViewById<EditText>(R.id.editTextTextPersonName8)
+        val userID = findViewById<EditText>(R.id.editTextTextPersonName5).text.toString()
+        val password = findViewById<EditText>(R.id.editTextTextPassword).text.toString()
+        val confirmpassword = findViewById<EditText>(R.id.editTextTextPassword2).text.toString()
+        val email = findViewById<EditText>(R.id.editTextTextPersonName11).text.toString()
+        val firstName = findViewById<EditText>(R.id.editTextTextPersonName4).text.toString()
+        val lastName = findViewById<EditText>(R.id.editTextTextPersonName8).text.toString()
         //userType = a boolean value for the sake of sending through body of API call
         val userType = findViewById<CheckBox>(R.id.checkBox5).isChecked
         val queue = Volley.newRequestQueue( this)
@@ -48,8 +41,10 @@ class RegisterPage : AppCompatActivity() {
             Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
             return
         }
-
-
+        var type = "patient"
+        if(userType){
+            type = "caregiver"
+        }
         //POST METHOD API call
         //When a proper response is received from the call create an intent to move to the mainpage
         val postUrl = "https://4cxr4yahc7.execute-api.us-east-2.amazonaws.com/TestEnvrio/register"
@@ -59,7 +54,7 @@ class RegisterPage : AppCompatActivity() {
         try {
             postData.put("userid", userID)
             postData.put("password", password)
-            postData.put("usertype", userType)
+            postData.put("usertype", type)
             postData.put("email", email)
             postData.put("firstname", firstName)
             postData.put("lastname", lastName)

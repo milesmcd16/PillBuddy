@@ -23,12 +23,12 @@ class SignInPage : AppCompatActivity() {
     fun signInToHome(view: View) {
 
         //login data
-        val userID = findViewById<EditText>(R.id.editTextTextPersonName)
-        val password = findViewById<EditText>(R.id.editTextTextPersonName2)
+        val userID = findViewById<EditText>(R.id.editTextTextPersonName).text.toString()
+        val password = findViewById<EditText>(R.id.editTextTextPersonName2).text.toString()
 
 
         //POST METHOD
-        val postUrl = "https://4cxr4yahc7.execute-api.us-east-2.amazonaws.com/TestEnvrio/changepw"
+        val postUrl = "https://4cxr4yahc7.execute-api.us-east-2.amazonaws.com/TestEnvrio/login"
         val requestQueue = Volley.newRequestQueue(this)
 
         val postData = JSONObject()
@@ -46,8 +46,10 @@ class SignInPage : AppCompatActivity() {
             //make a toast notification bubble when successful login happens
             //Move user to the homepage on successful login
             Response.Listener { response ->
-                Toast.makeText(this, "Successful login", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, HomePage::class.java)
+                Toast.makeText(this, response.toString(), Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, HomePage::class.java).apply {
+                    putExtra("userID", userID)
+                }
                 startActivity(intent)
             },
 

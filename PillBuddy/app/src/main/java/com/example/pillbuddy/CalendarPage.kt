@@ -34,7 +34,7 @@ class CalendarPage : AppCompatActivity() {
             //Response is going to come in json format
             //populate by searching with alert ids
             //maybe refill the local user database
-            val url = "https://4cxr4yahc7.execute-api.us-east-2.amazonaws.com/TestEnvrio?currUser=" + userID
+            val url = "https://4cxr4yahc7.execute-api.us-east-2.amazonaws.com/TestEnvrio/post-notification?userid=" + userID
             val jsonObjectRequest = StringRequest(
                 Request.Method.GET, url,
                 Response.Listener<String>() { response ->

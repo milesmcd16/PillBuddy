@@ -67,7 +67,9 @@ class ConfirmNotificationPage : AppCompatActivity() {
         }
         val notification = NotificationData(notifID,null, message, dosageText, hour, minutes, daysArray)
         NotificationDataHelper.notificationList.add(0,notification)
-
+        for( notifs in NotificationDataHelper.notificationList){
+            Log.d("please", "${notifs.NotifId}")
+        }
         AlarmHandler.updateAlarms(this, notification)
         Log.d("Yeet", "Notification created")
         notifID += 1

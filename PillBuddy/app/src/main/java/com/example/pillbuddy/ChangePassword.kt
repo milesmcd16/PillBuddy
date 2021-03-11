@@ -30,7 +30,7 @@ class ChangePassword : AppCompatActivity() {
 
         //Check if Passwords match
         //Return an error message if they don't match
-        if(newPW != confirmPW) {
+        if(newPW.text.toString() != confirmPW.text.toString()) {
             val msg = "Passwords do not match"
             Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
             return

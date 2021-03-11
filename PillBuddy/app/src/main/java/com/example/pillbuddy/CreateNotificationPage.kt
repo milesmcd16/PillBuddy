@@ -7,6 +7,7 @@ import java.util.*
 import android.app.TimePickerDialog
 import android.content.Intent
 import android.text.format.DateFormat.is24HourFormat
+import android.util.Log
 import android.view.View
 import android.widget.CheckBox
 import android.widget.EditText
@@ -22,10 +23,13 @@ import org.json.JSONObject
 
 const val EXTRA_MESSAGE = "com.example.pillbuddy.MESSAGE"
 
+var mil_hour = 0
+var userID :String?  = null
 open class CreateNotificationPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_notification_page)
+        userID = intent.getStringExtra("UserID")
     }
     // function to move to the ConfirmNotification page while passing the data entered in the text boxes
     fun createNotifButton(view: View) {
@@ -66,43 +70,84 @@ open class CreateNotificationPage : AppCompatActivity() {
         val saturdayBox = findViewById<CheckBox>(R.id.SaturdayCheckBox)
         val sundayBox = findViewById<CheckBox>(R.id.SundayCheckBox)
 
+        var daysString : String? = null
         //if box is checked add day to days array
         if(mondayBox.isChecked){
             days[0] = "monday"
+            daysString = "M"
         }
         if(tuesdayBox.isChecked){
             days[1] = "tuesday"
+            if(daysString != null) {
+                daysString += "T"
+            }
+            else{
+                daysString = "T"
+            }
         }
         if(wednesdayBox.isChecked){
             days[2] = "wednesday"
+            if(daysString != null) {
+                daysString += "W"
+            }
+            else{
+                daysString = "W"
+            }
         }
         if(thursdayBox.isChecked){
             days[3] = "thursday"
+            if(daysString != null) {
+                daysString += "R"
+            }
+            else{
+                daysString = "R"
+            }
         }
         if(fridayBox.isChecked){
             days[4] = "friday"
+            if(daysString != null) {
+                daysString += "F"
+            }
+            else{
+                daysString = "F"
+            }
         }
         if(saturdayBox.isChecked){
             days[5] = "saturday"
+            if(daysString != null) {
+                daysString += "S"
+            }
+            else{
+                daysString = "S"
+            }
         }
         if(sundayBox.isChecked){
             days[6] = "sunday"
+            if(daysString != null) {
+                daysString += "U"
+            }
+            else{
+                daysString = "U"
+            }
         }
         intent.putExtra("days", days)
         startActivity(intent)
 
+
+        val medTime = mil_hour.toString() + minutes.toString()
         //API call here to send the data input
         //Post method
-        val userID = NotificationDataHelper.notificationList[0].getUserId()
+        Log.d("user","$userID, $daysString, $medTime")
         val postUrl = "https://4cxr4yahc7.execute-api.us-east-2.amazonaws.com/TestEnvrio/post-notification"
         val requestQueue = Volley.newRequestQueue(this)
 
         val postData = JSONObject()
         try {
             postData.put("userid", userID)
-            postData.put("nameMed", medName)
-            postData.put("amtMed", dosageMessage)
-            postData.put("timeNotif", days)
+            postData.put("medication", medName.text.toString())
+            postData.put("dosage", dosageMessage)
+            postData.put("frequency", daysString)
+            postData.put("time", medTime)
         } catch (e: JSONException) {
             e.printStackTrace()
         }
@@ -139,6 +184,7 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
     override fun onTimeSet(view: TimePicker, hourOfDay: Int, minute: Int) {
         // Do something with the time chosen by the user
         hour = hourOfDay
+        mil_hour = hourOfDay
         minutes = minute
     }
 }
