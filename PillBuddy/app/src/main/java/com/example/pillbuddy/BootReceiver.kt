@@ -14,7 +14,7 @@ class BootReceiver : BroadcastReceiver() {
         if (context != null && intent?.action.equals("android.intent.action.BOOT_COMPLETED")) {
 
             // Reschedule every alarm here
-            NotificationDataHelper.scheduleAllAlarms(context)
+            //DataUtils.scheduleAlarmsForData(context)
         }
     }
 }

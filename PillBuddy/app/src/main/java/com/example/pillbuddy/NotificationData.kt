@@ -18,7 +18,11 @@ data class NotificationData (
     //daily = every day
     @SerializedName("Days")
     var Days: Array<String?>? = null
-) {
+)
+{
+    fun getUserId(): String? {
+        return Userid
+    }
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
@@ -49,10 +53,6 @@ data class NotificationData (
         result = 31 * result + Minute
         result = 31 * result + (Days?.contentHashCode() ?: 0)
         return result
-    }
-
-    fun getUserId(): String? {
-        return Userid
     }
 }
 

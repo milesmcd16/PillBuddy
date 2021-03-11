@@ -11,12 +11,14 @@ import android.view.View
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TimePicker
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
-import com.example.pillbuddy.NotificationData
 import com.android.volley.Request
 import com.android.volley.Response
-import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import org.json.JSONException
+import org.json.JSONObject
 
 const val EXTRA_MESSAGE = "com.example.pillbuddy.MESSAGE"
 
@@ -28,14 +30,16 @@ open class CreateNotificationPage : AppCompatActivity() {
     // function to move to the ConfirmNotification page while passing the data entered in the text boxes
     fun createNotifButton(view: View) {
         // gets the string that will be passed to the next activity page
-        val editText = findViewById<EditText>(R.id.editTextTextPersonName3)
-        val message = editText.text.toString()
+        //Name of Medication
+        val medName = findViewById<EditText>(R.id.editTextTextPersonName3)
+        val message = medName.text.toString()
         //create new intent and pass the string
         val intent = Intent(this, ConfirmNotificationPage::class.java).apply {
             putExtra(EXTRA_MESSAGE, message)
         }
 
         // gets the string of the edit text for the dosage amount to pass to next activity
+        //dosage amount
         val dosageText = findViewById<EditText>(R.id.editTextTextPersonName9)
         val dosageMessage = dosageText.text.toString()
         // give the dosage message to the intent
@@ -87,26 +91,31 @@ open class CreateNotificationPage : AppCompatActivity() {
         intent.putExtra("days", days)
         startActivity(intent)
 
-        /*
         //API call here to send the data input
-        //
-        //
-        //API call here to send the data input
-        //POst method have to figure some stuff out
+        //Post method
         val userID = NotificationDataHelper.notificationList[0].getUserId()
-        val queue = Volley.newRequestQueue( this)
+        val postUrl = "https://4cxr4yahc7.execute-api.us-east-2.amazonaws.com/TestEnvrio/post-notification"
+        val requestQueue = Volley.newRequestQueue(this)
 
-        val url = ("https://4cxr4yahc7.execute-api.us-east-2.amazonaws.com/TestEnvrio?currUser=")
-        val jsonObjectRequest = StringRequest(
-                Request.Method.POST, url,
-                Response.Listener<String>() { response ->
-                    var jsonResponseCalendar = response.toString()
-                },
-                Response.ErrorListener {//something here maybe //
-                })
-        queue.add(jsonObjectRequest)
+        val postData = JSONObject()
+        try {
+            postData.put("userid", userID)
+            postData.put("nameMed", medName)
+            postData.put("amtMed", dosageMessage)
+            postData.put("timeNotif", days)
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
 
-         */
+        val jsonObjectRequest = JsonObjectRequest(
+            Request.Method.POST,
+            postUrl,
+            postData,
+            //make a toast notification bubble when successful for now
+            Response.Listener { response -> Toast.makeText(this, "Password change successful", Toast.LENGTH_SHORT).show()},
+            Response.ErrorListener { error -> error.printStackTrace() })
+
+        requestQueue.add(jsonObjectRequest)
     }
     // function to show the time picker box when the button is pressed
     fun showTimePickerDialog(v: View) {

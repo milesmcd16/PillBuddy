@@ -32,7 +32,8 @@ object NotificationHandler {
         }
     }
 
-    fun createNotification(context: Context, notificationData: NotificationData) {
+    fun createNotification(context: Context, title: String, text: String,
+                           bigText: String, autoCancel: Boolean) {
 
         // Get channel ID. Should be the same as the channel we created.
         val channelID = "${context.packageName}-${context.getString(R.string.app_name)}"
@@ -42,14 +43,14 @@ object NotificationHandler {
             // Set notification icon. This is required.
             setSmallIcon(R.drawable.purba_red_and_white_pill)
             // Set the notification title from reminder data class
-            setContentTitle("Its time to take your ${notificationData.MedicationName}")
+            setContentTitle(title)
             // Set the main text for the notification
-            setContentText(notificationData.Dosage)
+            setContentText(text)
             // The big text notification style allows the notification to be expanded and display
             // more text. This sets the style and then enters the extra text for when expanded.
-            //setStyle(NotificationCompat.BigTextStyle().bigText(bigText))
+            setStyle(NotificationCompat.BigTextStyle().bigText(bigText))
             // If we leave autoCancel on, the notification will simply close if the user touches it.
-            setAutoCancel(false)
+            setAutoCancel(autoCancel)
             //val jsonObjectRequest = StringRequest
 
             // Set up the notification's intent. This will launch our main menu.

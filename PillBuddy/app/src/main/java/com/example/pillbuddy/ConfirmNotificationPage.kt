@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-import android.content.Context
-import android.util.Log
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.example.pillbuddy.NotificationDataHelper
 
 var hour = 0
@@ -65,8 +67,7 @@ class ConfirmNotificationPage : AppCompatActivity() {
         val notification = NotificationData(notifID,null, message, dosageText, hour, minutes, daysArray)
         NotificationDataHelper.notificationList.add(0,notification)
 
-        AlarmHandler.updateAlarms(this, notification)
-        Log.d("Yeet", "Notification created")
+
         notifID += 1
         // Create a notification from the information entered by the user.
         // For demonstration purposes, this is delivered immediately.
@@ -78,6 +79,8 @@ class ConfirmNotificationPage : AppCompatActivity() {
     fun createAnotherNotifButton(view: View){
         val intent = Intent(this, CreateNotificationPage::class.java)
         startActivity(intent)
+
+
     }
     //function that creates the intent to return to the home page and moves to that page when
     // the button is pressed
