@@ -20,12 +20,12 @@ import com.android.volley.toolbox.Volley
 import org.json.JSONException
 import org.json.JSONObject
 
-const val EXTRA_MESSAGE = "com.example.pillbuddy.MESSAGE"
 
-open class CreateNotificationPage : AppCompatActivity() {
+
+open class CaregiverCreateNotificationPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_create_notification_page)
+        setContentView(R.layout.activity_caregiver_create_notification_page)
     }
     // function to move to the ConfirmNotification page while passing the data entered in the text boxes
     fun createNotifButton(view: View) {
@@ -34,7 +34,7 @@ open class CreateNotificationPage : AppCompatActivity() {
         val medName = findViewById<EditText>(R.id.editTextTextPersonName3)
         val message = medName.text.toString()
         //create new intent and pass the string
-        val intent = Intent(this, ConfirmNotificationPage::class.java).apply {
+        val intent = Intent(this, CaregiverConfirmNotificationPage::class.java).apply {
             putExtra(EXTRA_MESSAGE, message)
         }
 
@@ -44,6 +44,11 @@ open class CreateNotificationPage : AppCompatActivity() {
         val dosageMessage = dosageText.text.toString()
         // give the dosage message to the intent
         intent.putExtra("Dosage", dosageMessage)
+
+        val patientText = findViewById<EditText>(R.id.editTextTextPersonName12)
+        val patientMessage = patientText.toString()
+        intent.putExtra("Patient_name", patientMessage)
+
 
         //get time and convert to 12 hours
         var pm :Boolean? = false
@@ -103,6 +108,7 @@ open class CreateNotificationPage : AppCompatActivity() {
             postData.put("nameMed", medName)
             postData.put("amtMed", dosageMessage)
             postData.put("timeNotif", days)
+            postData.put("patientName", patientMessage)
         } catch (e: JSONException) {
             e.printStackTrace()
         }
@@ -112,7 +118,7 @@ open class CreateNotificationPage : AppCompatActivity() {
             postUrl,
             postData,
             //make a toast notification bubble when successful for now
-            Response.Listener { response -> Toast.makeText(this, "Notification created successfully", Toast.LENGTH_SHORT).show()},
+            Response.Listener { response -> Toast.makeText(this, "Notification created for " + patientMessage + "successfully", Toast.LENGTH_SHORT).show()},
             Response.ErrorListener { error -> error.printStackTrace() })
 
         requestQueue.add(jsonObjectRequest)
@@ -122,29 +128,8 @@ open class CreateNotificationPage : AppCompatActivity() {
         //show timepicker
         TimePickerFragment().show(supportFragmentManager, "timePicker")
     }
-
-    fun mainMenuButton(view: View)
-    {
-        val intent = Intent(this, HomePage::class.java)
+    fun homeButton(view: View) {
+        val intent = Intent(this, CaregiverHomePage::class.java)
         startActivity(intent)
-    }
-}
-//class for the time picker dialog box created in the create notification activity
-class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener {
-
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        // Use the current time as the default values for the picker
-        val c = Calendar.getInstance()
-        val hour = c.get(Calendar.HOUR_OF_DAY)
-        val minute = c.get(Calendar.MINUTE)
-
-        // Create a new instance of TimePickerDialog and return it
-        return TimePickerDialog(activity,this, hour, minute, is24HourFormat(activity))
-    }
-
-    override fun onTimeSet(view: TimePicker, hourOfDay: Int, minute: Int) {
-        // Do something with the time chosen by the user
-        hour = hourOfDay
-        minutes = minute
     }
 }

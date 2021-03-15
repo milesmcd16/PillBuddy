@@ -29,7 +29,7 @@ class AddBuddyPage : AppCompatActivity() {
 
         val userID = NotificationDataHelper.notificationList[0].getUserId()
         val queue = Volley.newRequestQueue( this)
-        val newBuddy = findViewById<EditText>(R.id.editTextTextPersonName10)
+        val newBuddy = findViewById<EditText>(R.id.editTextTextPersonName90).text.toString()
         val url = "https://4cxr4yahc7.execute-api.us-east-2.amazonaws.com/TestEnvrio?currUser=" + userID + "&newBuddy=" + newBuddy
         val jsonObjectRequest = StringRequest(
             Request.Method.GET, url,

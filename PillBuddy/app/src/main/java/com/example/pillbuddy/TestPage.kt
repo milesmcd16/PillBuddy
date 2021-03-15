@@ -42,7 +42,7 @@ class TestPage : AppCompatActivity(){
             Request.Method.POST,
             postUrl,
             postData,
-            Response.Listener { response -> textView.text = response.toString() },
+            Response.Listener { response -> textView.text = postData.toString() },
             Response.ErrorListener { error -> error.printStackTrace() })
 
         requestQueue.add(jsonObjectRequest)

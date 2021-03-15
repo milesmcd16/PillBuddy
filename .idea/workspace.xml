@@ -3,8 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="f8ef0bdc-b3dd-4c7b-92bc-bd46c5fe969a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PillBuddy/app/src/main/java/com/example/pillbuddy/AlarmReceiver.kt" beforeDir="false" afterPath="$PROJECT_DIR$/PillBuddy/app/src/main/java/com/example/pillbuddy/AlarmReceiver.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PillBuddy/app/src/main/java/com/example/pillbuddy/ConfirmNotificationPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/PillBuddy/app/src/main/java/com/example/pillbuddy/ConfirmNotificationPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PillBuddy/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/PillBuddy/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PillBuddy/app/src/main/java/com/example/pillbuddy/AddBuddyPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/PillBuddy/app/src/main/java/com/example/pillbuddy/AddBuddyPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PillBuddy/app/src/main/java/com/example/pillbuddy/ChangePassword.kt" beforeDir="false" afterPath="$PROJECT_DIR$/PillBuddy/app/src/main/java/com/example/pillbuddy/ChangePassword.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PillBuddy/app/src/main/java/com/example/pillbuddy/RegisterPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/PillBuddy/app/src/main/java/com/example/pillbuddy/RegisterPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PillBuddy/app/src/main/java/com/example/pillbuddy/SignInPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/PillBuddy/app/src/main/java/com/example/pillbuddy/SignInPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PillBuddy/app/src/main/java/com/example/pillbuddy/TestPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/PillBuddy/app/src/main/java/com/example/pillbuddy/TestPage.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

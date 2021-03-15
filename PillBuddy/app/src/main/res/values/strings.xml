@@ -29,4 +29,8 @@
     <string name="settings_change_button_text">Change</string>
     <string name="settings_add_remove_buddy_button_text">Add/Remove</string>
     <string name="buddy_email_text">Enter Buddy Email</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="caregiver">Caregiver?</string>
 </resources>

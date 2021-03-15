@@ -23,9 +23,9 @@ class ChangePassword : AppCompatActivity() {
     {
         //Data from user entry to put in body of API call
         // current password, new password, and current userid
-        val currentPW = findViewById<EditText>(R.id.CurrentPassword)
-        val newPW = findViewById<EditText>(R.id.editTextTextPassword3)
-        val confirmPW = findViewById<EditText>(R.id.editTextTextPassword8)
+        val currentPW = findViewById<EditText>(R.id.CurrentPassword).text.toString()
+        val newPW = findViewById<EditText>(R.id.editTextTextPassword3).text.toString()
+        val confirmPW = findViewById<EditText>(R.id.editTextTextPassword8).text.toString()
         val userID = NotificationDataHelper.notificationList[0].getUserId()
 
         //Check if Passwords match

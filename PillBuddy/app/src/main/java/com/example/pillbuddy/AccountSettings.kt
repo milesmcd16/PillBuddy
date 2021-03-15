@@ -25,6 +25,10 @@ class AccountSettings : AppCompatActivity() {
         val intent = Intent(this, AddBuddyPage::class.java)
         startActivity(intent)
     }
+    fun removeBuddyButton(view: View){
+        val intent = Intent(this, RemoveBuddy::class.java)
+        startActivity(intent)
+    }
     fun changePasswordButton(view: View){
         val intent = Intent(this, ChangePassword::class.java)
         startActivity(intent)

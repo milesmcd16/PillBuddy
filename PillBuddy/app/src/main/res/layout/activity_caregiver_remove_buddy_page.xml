@@ -4,18 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddBuddyPage">
+    tools:context=".CaregiverRemove">
 
     <Button
         android:id="@+id/button21"
         android:layout_width="225dp"
         android:layout_height="125dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
         android:layout_marginBottom="92dp"
         android:fontFamily="sans-serif-medium"
-        android:onClick="buddyInvitedButton"
-        android:text="Add Buddy"
+        android:onClick="removeButton"
+        android:text="Remove Buddy"
         android:textAllCaps="false"
         android:textColor="#000000"
         android:textSize="30sp"
@@ -36,16 +36,16 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="sans-serif-medium"
-        android:onClick="addBuddyToHome"
         android:text="@string/main_menu_button"
         android:textAllCaps="false"
         android:textColor="#000000"
         android:textSize="30sp"
+        android:onClick="toHome"
         app:backgroundTint="#99DDFF"
         app:cornerRadius="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
-        app:layout_constraintHorizontal_bias="0.875"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:strokeColor="#000000"
         app:strokeWidth="2dp" />
@@ -55,70 +55,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Add a Buddy"
+        android:text="Remove a Buddy"
         android:textColor="#000000"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="50dp"
-        android:text="Email:"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
-
     <EditText
         android:id="@+id/editTextTextPersonName90"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginTop="44dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="Enter Buddy Username"
         android:inputType="textPersonName"
         android:textSize="24sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView15"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView15" />
-
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="Patient"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName90" />
-
-    <CheckBox
-        android:id="@+id/checkBox2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Caregiver"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline6"
@@ -148,17 +112,5 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_end="16dp" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="0dp"
-        android:layout_height="79dp"
-        app:layout_constraintBottom_toBottomOf="@+id/button21"
-        app:layout_constraintEnd_toStartOf="@+id/button21"
-        app:layout_constraintHeight_percent="0.1"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="@+id/button21"
-        app:layout_constraintWidth_percent="0.2"
-        app:srcCompat="@drawable/plus" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
